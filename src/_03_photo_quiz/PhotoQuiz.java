@@ -5,6 +5,7 @@ package _03_photo_quiz;
  */
 
 import java.awt.Component;
+import java.awt.Frame;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -20,21 +21,29 @@ public class PhotoQuiz {
 
 		JFrame quizWindow = new JFrame();
 		quizWindow.setVisible(true);
+		
+		
 		// This will make sure the program exits when you close the window
 		quizWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		String puppy1 = "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12193133/German-Shepherd-Puppy-Fetch.jpg";
 		// 1. find an image on the internet, and put its URL in a String
 		// variable (from your browser, right click on the image, and select
 		// “Copy Image Address”)
-
+		Component comPup1;
 		// 2. create a variable of type "Component" that will hold your image
-
+		comPup1 = createImage(puppy1);
 		// 3. use the "createImage()" method below to initialize your Component
-
+		quizWindow.add(comPup1);
+		
+		
 		// 4. add the image to the quiz window
-
+		quizWindow.pack();
+		
+		JOptionPane.showInputDialog("What kind of dog is this?");
+		
 		// 5. call the pack() method on the quiz window
-
+		
+			
 		// 6. ask a question that relates to the image
 
 		// 7. print "CORRECT" if the user gave the right answer
