@@ -5,9 +5,12 @@ package _04_drum_kit;
  */
 
 import java.applet.AudioClip;
+import java.awt.Component;
+
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.ImageProducer;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -18,40 +21,50 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+
 public class DrumKit implements MouseListener {
 
 	JLabel drumLabelWithImage;
 
 	public void run() throws MalformedURLException {
+		JFrame frame = new JFrame();
 
 		// 1. Make a JFrame variable and initialize it using "new JFrame()"
-
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// 2. Make the frame visible and
 		// set its default close operation to JFrame.EXIT_ON_CLOSE
+		frame.setSize(800, 600);
 
 		// 3. Set the size of the frame
-
+		frame.setTitle("Drum Kit");
 		// 4. Set the title of the frame
+		JPanel panel = new JPanel();
 
 		// 5. Make a JPanel variable and initialize it using "new JPanel().
+		frame.add(panel);
 
 		// 6. Add the panel to the frame. (The panel is invisible.)
-
+		
 		// 7. Download an image of a drum from the Internet. Drop it into your
 		// Eclipse project under "default package".
-
+		String s = "Drum_image.jpg";
 		// 8. Put the name of your image file in a String variable.
-
+		drumLabelWithImage = createLabelImage(s);
 		// 9. Edit the next line to use your String variable
+
 		// drumLabelWithImage = createLabelImage(drumImageString);
-
+		
+		panel.add(drumLabelWithImage);
+		
 		// 10. Add the image to the panel
-
+		GridLayout grid = new GridLayout();
+		panel.setLayout(grid);
 		// 11. Set the layout of the panel to "new GridLayout()"
-
+		frame.pack();
 		// 12. call the pack() method on the frame. Run your program. Do you see
 		// your drum image?
-
+		drumLabelWithImage.addMouseListener(this);
 		// 13. add this mouse listener to drumLabelWithImage
 
 		// 18. Add more images to make a drumkit. Remember to add this mouse
@@ -60,6 +73,8 @@ public class DrumKit implements MouseListener {
 	}
 
 	public void mouseClicked(MouseEvent e) {
+		
+		System.out.println("mouse clicked");
 		// 14. Print "mouse clicked" to the console. Run your program and watch
 		// the console to see when this is printed.
 
@@ -70,7 +85,10 @@ public class DrumKit implements MouseListener {
 		// 15. Download a drum sound and drop it into your "default package".
 		// You can find it on freesound.org. To download it, log in as
 		// leagueofamazing/code4life.
-
+		String sound = "381353_waveplay-old_120-bpm-basic-drum-loop.wav";
+		if (drumClicked = ){
+			playSound(sound);
+		}
 		// 16. If they clicked on the drumImage...
 
 		// 17. ...use the playSound method to play a drum sound. Test to see if
